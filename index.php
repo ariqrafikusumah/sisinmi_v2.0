@@ -30,7 +30,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input id="email" class="form-control" type="email" placeholder="Enter Email" />
+                        <input id="email" class="form-control" type="twxt" placeholder="Enter Email" />
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
