@@ -25,14 +25,14 @@
             </div>
             <div class="col">
                 <form action="src/function/proses_login.php" method="post">
-                    <div class="mb-3">
+                    <div class="input-group mb-3">
                         <img src="src/assets/img/logo.png" alt="logo">
                     </div>
-                    <div class="mb-3">
+                    <div class="input-group mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input id="email" class="form-control" type="twxt" placeholder="Enter Email" />
                     </div>
-                    <div class="mb-3">
+                    <div class="input-group mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input id="password" class="form-control" type="password" placeholder="Enter Password" />
                     </div>
