@@ -30,14 +30,14 @@
                     </div>
                     <div class="input-group mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input id="email" class="form-control" type="twxt" placeholder="Enter Email" />
+                        <input id="email" name="email" class="form-control" type="text" placeholder="Enter Email" />
                     </div>
                     <div class="input-group mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input id="password" class="form-control" type="password" placeholder="Enter Password" />
+                        <input id="password" name="password" class="form-control" type="password" placeholder="Enter Password" />
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary"> Login </button>
+                        <button type="submit" class="btn btn-primary" value="login"> Login </button>
                     </div>
                 </form>
             </div>
