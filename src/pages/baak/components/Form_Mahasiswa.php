@@ -1,12 +1,12 @@
-<form action="../../function/proses_tambahdosen.php" method="post">
+<form action="../../function/proses_tambahmahasiswa.php" method="post">
     <div class="bg-orange-200 p-2 rounded-xl">
         <div class="mb-3">
-            <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-            <input id="nama_lengkap" name="nama_lengkap" type="text" class="form-control" placeholder="Enter your name">
+            <label for="nama" class="form-label">Nama Lengkap</label>
+            <input id="nama" name="nama" type="text" class="form-control" placeholder="Enter your name">
         </div>
         <div class="mb-3">
-            <label for="nip" class="form-label">NIP</label>
-            <input id="nip" name="nip" type="number" class="form-control" placeholder="Enter NIP">
+            <label for="nim" class="form-label">NIM</label>
+            <input id="nim" name="nim" type="number" class="form-control" placeholder="Enter NIM">
         </div>
         <div class="mb-3">
             <label for="program_studi" class="form-label">Program Studi</label>
@@ -21,8 +21,8 @@
             <input id="email" name="email" type="email" class="form-control" placeholder="email@example.com">
         </div>
         <div class="mb-3">
-            <label for="telepon" class="form-label">Telepon</label>
-            <input id="telepon" name="telepon" type="number" class="form-control" placeholder="628xxx">
+            <label for="telpon" class="form-label">Telepon</label>
+            <input id="telpon" name="telpon" type="number" class="form-control" placeholder="628xxx">
         </div>
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>

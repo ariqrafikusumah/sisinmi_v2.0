@@ -19,11 +19,11 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
       if ($_SESSION['role'] == 'admin') {
         header('location: ../pages/admin/_dashboard-admin.php');
       } else if ($_SESSION['role'] == 'dosen') {
-        header('location: ../pages/admin/_dashboard-dosen.php');
+        header('location: ../pages/dosen/_dashboard-dosen.php');
       } else if ($_SESSION['role'] == 'baak') {
-        header('location: ../pages/admin/_dashboard-baak.php');
+        header('location: ../pages/baak/_dashboard-baak.php');
       } else if ($_SESSION['role'] == 'kaprodi') {
-        header('location: ../pages/admin/_dashboard-kaprodi.php');
+        header('location: ../pages/kaprodi/_dashboard-kaprodi.php');
       } else {
         header('location: index.php');
       }
