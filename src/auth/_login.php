@@ -17,7 +17,7 @@
                         <input id="password" name="password" class="form-control" type="password" placeholder="Enter Password" />
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary" value="login"> Login </button>
+                        <button type="submit" class="btn btn-primary bg-blue-500 hover:bg-blue-600" value="login"> Login </button>
                     </div>
                 </form>
             </div>

@@ -22,6 +22,14 @@
 </head>
 
 <body>
+
+    <div>
+        <?php require_once("components/Navbar.php") ?>
+    </div>
+
+    <div class="mt-5 p-5">
+        <?php require_once("components/Form_User.php") ?>
+    </div>
     <!-- 
         JS Bootstrap CDN
     -->

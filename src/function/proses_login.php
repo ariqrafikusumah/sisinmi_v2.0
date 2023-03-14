@@ -34,4 +34,3 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     echo "Email dan password tidak boleh kosong.";
   }
 }
-?>

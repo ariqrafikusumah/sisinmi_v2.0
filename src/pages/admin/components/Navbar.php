@@ -1,6 +1,6 @@
-<nav class="navbar bg-body-tertiary fixed-top">
+<nav class="navbar  bg-orange-400 fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Dashboad Admin</a>
+        <a class="navbar-brand" href="_dashboard-admin.php">Dashboad Admin</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,7 +21,7 @@
                         <a class="nav-link" href="_form-input-user.php"><i class="fa-solid fa-pen-to-square"></i> Input User</a>
                     </li>
                     <li class="nav-item hover:bg-gray-200 p-2">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-pen-to-square"></i> Input Dosen</a>
+                        <a class="nav-link" href="_form-input-dosen.php"><i class="fa-solid fa-pen-to-square"></i> Input Dosen</a>
                     </li>
                 </ul>
             </div>

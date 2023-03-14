@@ -23,6 +23,17 @@
 
 <body>
     
+    <div>
+        <?php require_once("components/Navbar.php") ?>
+    </div>
+
+    <div class=" container mt-5 p-5">
+        <div class="mb-3 text-2xl font-bold">
+            Input Dosen 
+        </div>
+        <?php require_once("components/Form_Dosen.php") ?>
+    </div>
+
     <!-- 
         JS Bootstrap CDN
     -->
