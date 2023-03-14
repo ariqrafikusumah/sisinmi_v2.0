@@ -5,7 +5,8 @@
             <th>Email</th>
             <th>Password</th>
             <th>Role</th>
-            <th>Action</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -44,14 +45,10 @@
             echo "<td>" . $row['password'] . "</td>";
             echo "<td>" . $row['role'] . "</td>";
             echo "<td>";
-            echo "<div class='flex'";
-                echo "<div>";
-                    echo "<button class='btn btn-primary bg-blue-500' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</button>";
-                echo "</div>";
-                echo "<div>";
-                    echo "<button class='btn btn-danger bg-red-500'>Delete</button>";
-                echo "</div>";
-            echo "</div>";
+            echo "<button class='btn btn-primary bg-blue-500' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-pen-to-square'></i></button>";
+            echo "</td>";
+            echo "<td>";
+            echo "<button class='btn btn-danger bg-red-500'><i class='fa-solid fa-trash'></i></button>";
             echo "</td>";
             echo "</tr>";
         }
@@ -63,7 +60,8 @@
             <th>Email</th>
             <th>Password</th>
             <th>Role</th>
-            <th>Action</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </tfoot>
 </table>

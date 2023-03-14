@@ -17,6 +17,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['role'])
     // Mengecek apakah data berhasil ditambahkan
     if ($result) {
         echo "Data berhasil ditambahkan";
+        header('location: ../pages/admin/_table-admin.php');
     } else {
         echo "Error: " . mysqli_error($koneksi);
     }

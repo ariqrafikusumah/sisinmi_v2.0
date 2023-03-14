@@ -1,5 +1,5 @@
 <form action="../../function/proses_tambahuser.php" method="post">
-    <div>
+    <div class="bg-orange-200 p-2 rounded-xl">
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input id="email" name="email" class="form-control" type="email" placeholder="Enter Email">

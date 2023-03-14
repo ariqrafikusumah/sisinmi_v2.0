@@ -23,11 +23,14 @@
 
 <body>
 
-    <div>
+    <div class="mb-5">
         <?php require_once("components/Navbar.php") ?>
     </div>
 
-    <div class="mt-5 p-5">
+    <div class=" container mt-5 p-5 mb-5">
+        <div class="mb-3 mt-5 text-2xl font-bold">
+            Input User
+        </div>
         <?php require_once("components/Form_User.php") ?>
     </div>
     <!-- 

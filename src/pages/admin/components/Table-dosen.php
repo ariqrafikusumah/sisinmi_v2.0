@@ -1,4 +1,4 @@
-<table id="example2" class="display" style="width:100%">
+<table id="example2" class="display" style="width: 100%;">
     <thead>
         <tr>
             <th>ID Dosen</th>
@@ -8,7 +8,8 @@
             <th>Email</th>
             <th>Telepon</th>
             <th>Alamat</th>
-            <th>Action</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -50,14 +51,10 @@
             echo "<td>" . $row['telepon'] . "</td>";
             echo "<td>" . $row['alamat'] . "</td>";
             echo "<td>";
-            echo "<div class='flex'";
-                echo "<div>";
-                    echo "<button type='button' class='btn btn-primary bg-blue-500' data-bs-toggle='modal' data-bs-target='#exampleModal2'>Edit</button>";
-                echo "</div>";
-                echo "<div>";
-                    echo "<button type='button' class='btn btn-danger bg-red-500'>Delete</button>";
-                echo "</div>";
-            echo "</div>";
+            echo "<button type='button' class='btn btn-primary bg-blue-500' data-bs-toggle='modal' data-bs-target='#exampleModal2'><i class='fa-solid fa-pen-to-square'></i></button>";
+            echo "</td>";
+            echo "<td>";
+            echo "<button type='button' class='btn btn-danger bg-red-500'><i class='fa-solid fa-trash'></i></button>";
             echo "</td>";
             echo "</tr>";
         }
@@ -66,13 +63,14 @@
     <tfoot>
         <tr>
             <th>ID Dosen</th>
-            <th>Nama Lengkao</th>
+            <th>Nama Lengkap</th>
             <th>NIP</th>
             <th>Program Studi</th>
             <th>Email</th>
             <th>Telepon</th>
             <th>Alamat</th>
-            <th>Action</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </tfoot>
 </table>

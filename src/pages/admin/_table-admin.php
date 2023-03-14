@@ -26,21 +26,25 @@
 </head>
 
 <body>
-    <div>
+    <div class="mb-5">
         <?php require_once("components/Navbar.php")  ?>
     </div>
-    <div class="container mt-3 p-5">
-        <div class="font-bold text-lg mb-3">
+    <div class="container mt-5 p-5">
+        <div class="font-bold text-lg mb-3 mt-5">
             Data User
         </div>
-            <?php require("components/Table-user.php") ?>
+        <div class="border-4 border-gray-200 shadow-lg p-2 rounded-lg">
+            <?php require_once("components/Table-user.php") ?>
+        </div>
     </div>
 
-    <div class="container mt-3 p-5">
+    <div class="container p-5">
         <div class="font-bold text-lg mb-3">
             Data Dosen
         </div>
+        <div class="border-4 border-gray-200 shadow-lg p-2 rounded-lg">
             <?php require_once("components/Table-dosen.php") ?>
+        </div>
     </div>
 
     <!-- 
