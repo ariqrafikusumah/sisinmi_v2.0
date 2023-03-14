@@ -38,9 +38,10 @@
         }
 
         // Menampilkan data user dalam bentuk tabel
+        $no = 1;
         foreach ($data as $row) {
             echo "<tr>";
-            echo "<td class='text-center'>" . $row['user_id'] . "</td>";
+            echo "<td>" . $no++ . "</td>";
             echo "<td>" . $row['email'] . "</td>";
             echo "<td>" . $row['password'] . "</td>";
             echo "<td>" . $row['role'] . "</td>";
@@ -48,7 +49,7 @@
             echo "<button class='btn btn-primary bg-blue-500' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-pen-to-square'></i></button>";
             echo "</td>";
             echo "<td>";
-            echo "<button class='btn btn-danger bg-red-500'><i class='fa-solid fa-trash'></i></button>";
+            echo "<a href='../../function/proses_deleteuser.php?user_id=".$row['user_id']."' class='btn btn-danger bg-red-500' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini?\")'><i class='fa-solid fa-trash'></i></a>";
             echo "</td>";
             echo "</tr>";
         }

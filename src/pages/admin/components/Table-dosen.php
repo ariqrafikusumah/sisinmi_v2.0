@@ -1,7 +1,7 @@
 <table id="example2" class="display" style="width: 100%;">
     <thead>
         <tr>
-            <th>ID Dosen</th>
+            <th>No</th>
             <th>Nama Lengkap</th>
             <th>NIP</th>
             <th>Program Studi</th>
@@ -41,9 +41,10 @@
         }
 
         // Menampilkan data user dalam bentuk tabel
+        $no = 1;
         foreach ($data as $row) {
             echo "<tr>";
-            echo "<td class='text-center'>" . $row['dosen_id'] . "</td>";
+            echo "<td>" .$no++. "</td>";
             echo "<td>" . $row['nama_lengkap'] . "</td>";
             echo "<td>" . $row['nip'] . "</td>";
             echo "<td>" . $row['program_studi'] . "</td>";
@@ -54,7 +55,7 @@
             echo "<button type='button' class='btn btn-primary bg-blue-500' data-bs-toggle='modal' data-bs-target='#exampleModal2'><i class='fa-solid fa-pen-to-square'></i></button>";
             echo "</td>";
             echo "<td>";
-            echo "<button type='button' class='btn btn-danger bg-red-500'><i class='fa-solid fa-trash'></i></button>";
+            echo "<a href='../../function/proses_deletedosen.php?dosen_id=".$row['dosen_id']."' class='btn btn-danger bg-red-500' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini?\")'><i class='fa-solid fa-trash'></i></a>";
             echo "</td>";
             echo "</tr>";
         }
@@ -62,7 +63,7 @@
     </tbody>
     <tfoot>
         <tr>
-            <th>ID Dosen</th>
+            <th>No</th>
             <th>Nama Lengkap</th>
             <th>NIP</th>
             <th>Program Studi</th>
