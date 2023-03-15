@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dasboard | Input - Dosen</title>
+    <title>Dasboard | Input - Karayawan</title>
     <!-- 
         Fontawesome
     -->
@@ -22,18 +22,17 @@
 </head>
 
 <body>
-    
+
     <div class="mb-5">
         <?php require_once("components/Navbar.php") ?>
     </div>
 
-    <div class=" container mt-5 p-5 mb-3">
+    <div class=" container mt-5 p-5 mb-5">
         <div class="mb-3 mt-5 text-2xl font-bold">
-            Input Dosen 
+            Input Karyawan
         </div>
-        <?php require_once("components/Form_Dosen.php") ?>
+        <?php require_once("components/Form_Karyawan.php") ?>
     </div>
-
     <!-- 
         JS Bootstrap CDN
     -->

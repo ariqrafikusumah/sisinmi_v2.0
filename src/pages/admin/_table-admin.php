@@ -31,6 +31,15 @@
     </div>
     <div class="container mt-5 p-5">
         <div class="font-bold text-lg mb-3 mt-5">
+            Data Karyawan
+        </div>
+        <div class="border-4 border-gray-200 shadow-lg p-2 rounded-lg">
+            <?php require_once("components/Table-karyawan.php") ?>
+        </div>
+    </div>
+
+    <div class="container mt-3 p-5">
+        <div class="font-bold text-lg mb-3 mt-3">
             Data User
         </div>
         <div class="border-4 border-gray-200 shadow-lg p-2 rounded-lg">
@@ -38,20 +47,11 @@
         </div>
     </div>
 
-    <div class="container p-5">
-        <div class="font-bold text-lg mb-3">
-            Data Dosen
-        </div>
-        <div class="border-4 border-gray-200 shadow-lg p-2 rounded-lg">
-            <?php require_once("components/Table-dosen.php") ?>
-        </div>
-    </div>
-
     <!-- 
-        Modal User
+        Modal
     -->
     <?php require_once("components/Modal-edit-user.php") ?>
-    <?php require_once("components/Modal-edit-dosen.php") ?>
+    <?php require_once("components/Modal-edit-karyawan.php") ?>
 
     <!-- 
         DataTables CDN Script

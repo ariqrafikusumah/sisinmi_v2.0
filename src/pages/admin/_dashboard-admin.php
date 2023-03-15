@@ -35,12 +35,7 @@
             <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2">
                 <a href="_table-admin.php">
                     <div class="rounded-lg bg-orange-200 hover:bg-orange-500 p-4 text-lg font-bold">
-                        <i class="fa-solid fa-database"></i> Table User
-                    </div>
-                </a>
-                <a href="_table-admin.php">
-                    <div class="rounded-lg bg-orange-200 hover:bg-orange-500 p-4 text-lg font-bold">
-                        <i class="fa-solid fa-database"></i> Table Dosen
+                        <i class="fa-solid fa-database"></i> Table Karyawan
                     </div>
                 </a>
             </div>
