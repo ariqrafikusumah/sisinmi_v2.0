@@ -1,26 +1,34 @@
 <?php
+// mengaktifkan session pada php
+session_start();
 
-// Memanggil file koneksi.php
-require_once('../config/database.php');
+// menghubungkan php dengan koneksi database
+include '../config/database.php';
+if (isset($_POST['tambah'])) {
+// menangkap data yang dikirim dari form save user
+$id_karyawan = $_POST['id_karyawan'];
+$role = $_POST['role'];
 
-// Mengecek apakah form telah disubmit
-if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['role'])) {
-    // Mengambil data dari form
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $role = $_POST['role'];
+// query untuk mendapatkan email dan password dari karyawan
+$query = "SELECT email, password FROM karyawan WHERE id_karyawan = '$id_karyawan'";
+$result = mysqli_query($koneksi, $query);
+$data = mysqli_fetch_assoc($result);
+$email = $data['email'];
+$password = $data['password'];
 
-    // Membuat query SQL untuk menambahkan data user ke dalam tabel
-    $sql = "INSERT INTO user (email, password, role) VALUES ('$email', '$password', '$role')";
-    $result = mysqli_query($koneksi, $sql);
+// query untuk save user
+$query = "INSERT INTO user (id_karyawan, email, password, role) VALUES ('$id_karyawan', '$email', '$password', '$role')";
+$hasil_query = mysqli_query($koneksi, $query);
 
-    // Mengecek apakah data berhasil ditambahkan
-    if ($result) {
-        echo "Data berhasil ditambahkan";
-        header('location: ../pages/admin/_table-admin.php');
-    } else {
-        echo "Error: " . mysqli_error($koneksi);
-    }
+// cek apakah query berhasil dijalankan
+if ($hasil_query) {
+  // jika berhasil, redirect ke halaman daftar user
+  header("location:../pages/admin/_table-admin.php?alert=success&pesan=Data berhasil ditambahkan.");
+  } else {
+  // jika gagal, tampilkan pesan error
+  echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
 }
-
+}
+// tutup koneksi database
+mysqli_close($koneksi);
 ?>

@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="../../function/Proses_TambahKaryawan.php" method="post">
     <div class="bg-orange-200 p-2 rounded-xl">
         <div class="mb-3">
             <label for="nama_lengkap" class="form-label">Nama Lengkap</label>

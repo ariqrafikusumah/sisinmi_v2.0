@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +24,16 @@
 </head>
 
 <body>
-
+<?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['role']==""){
+		header("location:../../../index.php?alert=failed&pesan=Anda Harus Login.");
+	}
+   
+ 
+	?>
     <div class="mb-5">
         <?php require_once("components/Navbar.php") ?>
     </div>

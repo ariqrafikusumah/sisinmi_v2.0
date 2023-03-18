@@ -1,36 +1,64 @@
-<?php
+<?php 
+// mengaktifkan session pada php
 session_start();
-include('../config/database.php');
-
-if (isset($_POST['email']) && isset($_POST['password'])) {
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-
-  if (!empty($email) && !empty($password)) {
-    $query = "SELECT * FROM user WHERE email='$email' AND password='$password'";
-    $result = mysqli_query($koneksi, $query);
-
-    if (mysqli_num_rows($result) == 1) {
-      $row = mysqli_fetch_assoc($result);
-      $_SESSION['user_id'] = $row['user_id'];
-      $_SESSION['email'] = $row['email'];
-      $_SESSION['role'] = $row['role'];
-
-      if ($_SESSION['role'] == 'admin') {
-        header('location: ../pages/admin/_dashboard-admin.php');
-      } else if ($_SESSION['role'] == 'dosen') {
-        header('location: ../pages/dosen/_dashboard-dosen.php');
-      } else if ($_SESSION['role'] == 'baak') {
-        header('location: ../pages/baak/_dashboard-baak.php');
-      } else if ($_SESSION['role'] == 'kaprodi') {
-        header('location: ../pages/kaprodi/_dashboard-kaprodi.php');
-      } else {
-        header('location: index.php');
-      }
-    } else {
-      echo "Email dan password tidak ditemukan.";
-    }
-  } else {
-    echo "Email dan password tidak boleh kosong.";
-  }
+ 
+// menghubungkan php dengan koneksi database
+include '../config/database.php';
+ 
+// menangkap data yang dikirim dari form login
+$email = $_POST['email'];
+$password = $_POST['password'];
+ 
+ 
+// menyeleksi data user dengan email dan password yang sesuai
+$login = mysqli_query($koneksi,"select * from user where email='$email' and password='$password'");
+// menghitung jumlah data yang ditemukan
+$cek = mysqli_num_rows($login);
+ 
+// cek apakah email dan password di temukan pada database
+if($cek > 0){
+ 
+	$data = mysqli_fetch_assoc($login);
+ 
+	// cek jika user login sebagai admin
+	if($data['role']=="admin"){
+ 
+		// buat session login dan email
+		$_SESSION['email'] = $email;
+		$_SESSION['role'] = "admin";
+		// alihkan ke halaman dashboard admin
+		header("location: ../pages/admin/_dashboard-admin.php");
+ 
+	// cek jika user login sebagai pegawai
+	}else if($data['role']=="dosen"){
+		// buat session login dan email
+		$_SESSION['email'] = $email;
+		$_SESSION['role'] = "dosen";
+		// alihkan ke halaman dashboard pegawai
+		header("location: ../pages/dosen/_dashboard-dosen.php");
+ 
+	// cek jika user login sebagai pengurus
+	}else if($data['role']=="baak"){
+		// buat session login dan email
+		$_SESSION['email'] = $email;
+		$_SESSION['role'] = "baak";
+		// alihkan ke halaman dashboard pengurus
+		header("location:../pages/baak/_dashboard-baak.php");
+    }else if($data['role']=="kaprodi"){
+		// buat session login dan email
+		$_SESSION['email'] = $email;
+		$_SESSION['role'] = "kaprodi";
+		// alihkan ke halaman dashboard pegawai
+		header("location:../pages/kaprodi/_dashboard-kaprodi.php");
+ 
+	// cek jika user login sebagai pengurus
+	}else{
+ 
+		// alihkan ke halaman login kembali
+		header("location: form_login.php?pesan=gagal");
+	}	
+}else{
+	header("location: form_login.php?pesan=gagal");
 }
+ 
+?>

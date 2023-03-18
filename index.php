@@ -22,7 +22,15 @@
 </head>
 
 <body>
-
+<?php
+if (isset($_GET['alert']) && isset($_GET['pesan'])) {
+        $alert = $_GET['alert'];
+        $pesan = $_GET['pesan'];
+        if ($alert == "failed") {
+            ?><div class="alert alert-danger"><?= $pesan ?></div><?php
+        }
+    }
+?>
     <div>
         <?php require_once("src/auth/_login.php") ?>
     </div>

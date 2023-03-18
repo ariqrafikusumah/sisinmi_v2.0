@@ -6,7 +6,7 @@
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"> Welcome #_SESSION LOGIN EMAIL</h5>
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"> Welcome <?php echo $_SESSION['email']; ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -24,7 +24,7 @@
                         <a class="nav-link" href="_form-input-user.php"><i class="fa-solid fa-pen-to-square"></i> Input user</a>
                     </li>
                     <li class="nav-item hover:bg-gray-200 p-2">
-                        <a class="nav-link text-red-500" href="../../../index.php"><i class="fa-solid fa-power-off"></i> Log-out</a>
+                        <a class="nav-link text-red-500" href="../../auth/_logout.php"><i class="fa-solid fa-power-off"></i> Log-out</a>
                     </li>
                 </ul>
             </div>

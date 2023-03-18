@@ -1,22 +1,25 @@
 <?php
-// koneksi ke database
-include '../config/database.php';
+// Memanggil file koneksi.php
+require_once('../config/database.php');
 
-// cek apakah parameter id telah diterima
-if (isset($_GET['user_id'])) {
-  $id = $_GET['user_id'];
-
-  // query untuk menghapus data pengguna berdasarkan id
-  $query = "DELETE FROM user WHERE user_id = $id";
-  $result = mysqli_query($koneksi, $query);
-
-  // check apakah query berhasil
-  if (!$result) {
-    die("Query error: " . mysqli_error($koneksi));
-  }
-
-  // arahkan kembali ke halaman utama
-  header("Location: ../pages/admin/_table-admin.php");
-  exit;
+// Memeriksa apakah parameter id_user telah diterima dari halaman sebelumnya
+if (isset($_GET['id_user']) && !empty($_GET['id_user'])) {
+    $id_user = $_GET['id_user'];
+} else {
+    echo "Parameter id_user tidak ditemukan atau kosong.";
+    exit();
 }
+
+// Membuat query SQL untuk menghapus data user dengan id_user tertentu
+$sql = "DELETE FROM user WHERE id_user=$id_user";
+
+// Menjalankan query SQL untuk menghapus data user dengan id_user tertentu
+if (mysqli_query($koneksi, $sql)) {
+  header("location:../pages/admin/_table-admin.php?alert=success&pesan=Data berhasil dihapus.");
+} else {
+    echo "Terjadi kesalahan saat menghapus data user: " . mysqli_error($koneksi);
+}
+
+// Menutup koneksi ke database
+mysqli_close($koneksi);
 ?>
