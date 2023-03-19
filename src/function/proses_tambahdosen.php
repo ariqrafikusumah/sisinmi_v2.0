@@ -25,5 +25,3 @@ if (isset($_POST['nama_lengkap']) && isset($_POST['nip']) && isset($_POST['progr
         echo "Error: " . mysqli_error($koneksi);
     }
 }
-
-?>

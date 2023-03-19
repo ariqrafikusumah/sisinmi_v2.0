@@ -9,6 +9,10 @@
                 <form method="POST" action="../../function/Proses_Updatekaryawan.php?id_karyawan=<?php echo $row['id_karyawan']; ?>">
                     <div class="modal-body">
                         <div class="mb-3">
+                            <label for="id_karyawan" class="form-label">ID Karyawan</label>
+                            <input type="text" id="id_karyawan" name="id_karyawan" class="form-control" value="<?php echo $row['id_karyawan']; ?>" disabled>
+                        </div>
+                        <div class="mb-3">
                             <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
                             <input id="nama_lengkap" name="nama_lengkap" type="text" class="form-control" placeholder="Enter Nama Lengkap" value="<?php echo $row['nama_lengkap']; ?>">
                         </div>
@@ -31,7 +35,7 @@
                         <div class="mb-3">
                             <label for="role" class="form-label">Role</label>
                             <select name="role" id="role" class="form-select">
-                                <option selected disabled><?php echo $row['role']; ?></option>
+                                <option value="<?php echo $row['role']; ?>"><?php echo $row['role']; ?></option>
                                 <option value="admin">admin</option>
                                 <option value="dosen">dosen</option>
                                 <option value="baak">baak</option>
@@ -44,9 +48,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <input id="alamat" name="alamat" type="text" class="form-control" placeholder="Enter Alamat" value="<?php echo $row['alamat']; ?>"></input>
+                            <textarea id="alamat" name="alamat" type="text" class="form-control" cols="30" rows="5" placeholder="Enter Alamat" value=""><?php echo $row['alamat']; ?></textarea>
                         </div>
-                        <input type="text" id="id_karyawan" name="id_karyawan" value="<?php echo $row['id_karyawan']; ?>" hidden>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary bg-gray-500" data-bs-dismiss="modal">Close</button>

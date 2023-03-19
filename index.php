@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dasboard | Login</title>
     <!-- 
+        Sweatalert 2
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- 
         Fontawesome
     -->
     <script src="https://kit.fontawesome.com/331247cafb.js" crossorigin="anonymous"></script>
@@ -22,15 +26,60 @@
 </head>
 
 <body>
-<?php
-if (isset($_GET['alert']) && isset($_GET['pesan'])) {
+    <?php
+    if (isset($_GET['alert']) && isset($_GET['pesan'])) {
         $alert = $_GET['alert'];
         $pesan = $_GET['pesan'];
         if ($alert == "failed") {
-            ?><div class="alert alert-danger"><?= $pesan ?></div><?php
+    ?>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '<?= $pesan ?>',
+                })
+            </script>
+    <?php
         }
     }
-?>
+    ?>
+
+    <?php
+    if (isset($_GET['alert']) && isset($_GET['pesan'])) {
+        $alert = $_GET['alert'];
+        $pesan = $_GET['pesan'];
+        if ($alert == "login") {
+    ?>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '<?= $pesan ?>',
+                })
+            </script>
+    <?php
+        }
+    }
+    ?>
+
+    <?php
+    if (isset($_GET['alert']) && isset($_GET['pesan'])) {
+        $alert = $_GET['alert'];
+        $pesan = $_GET['pesan'];
+        if ($alert == "logout") {
+    ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Logout',
+                    text: '<?= $pesan ?>',
+                })
+            </script>
+    <?php
+        }
+    }
+    ?>
+
     <div>
         <?php require_once("src/auth/_login.php") ?>
     </div>

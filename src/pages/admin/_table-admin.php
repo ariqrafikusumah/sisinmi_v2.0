@@ -26,16 +26,16 @@
 </head>
 
 <body>
-<?php 
-	session_start();
- 
-	// cek apakah yang mengakses halaman ini sudah login
-	if($_SESSION['role']==""){
-		header("location:../../../index.php?alert=failed&pesan=Anda Harus Login.");
-	}
-   
- 
-	?>
+    <?php
+    session_start();
+
+    // cek apakah yang mengakses halaman ini sudah login
+    if ($_SESSION['role'] == "") {
+        header("location:../../../index.php?alert=failed&pesan=Anda Harus Login.");
+    }
+
+
+    ?>
     <div class="mb-5">
         <?php require_once("components/Navbar.php")  ?>
     </div>
@@ -49,13 +49,17 @@
     </div>
     <?php
     if (isset($_GET['alert']) && isset($_GET['pesan'])) {
-    $alert = $_GET['alert'];
-    $pesan = $_GET['pesan'];
-    if ($alert == "success") {
-        ?><div class="alert alert-success"><?= $pesan ?></div><?php
+        $alert = $_GET['alert'];
+        $pesan = $_GET['pesan'];
+        if ($alert == "success") {
+    ?>
+            <div class="alert alert-success">
+                <?= $pesan ?>
+            </div>
+    <?php
+        }
     }
-}
-?>
+    ?>
     <div class="container mt-3 p-5">
         <div class="font-bold text-lg mb-3 mt-3">
             Data User
@@ -64,13 +68,6 @@
             <?php require_once("components/Table-user.php") ?>
         </div>
     </div>
-
-    <!-- 
-        Modal
-    -->
-    
-    <?php require_once("components/Modal-edit-user.php") ?>
-    <?php require_once("components/Modal-edit-karyawan.php") ?> 
 
     <!-- 
         DataTables CDN Script

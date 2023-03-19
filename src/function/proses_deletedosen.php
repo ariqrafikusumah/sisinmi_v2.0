@@ -28,4 +28,3 @@ if (isset($_GET['id_karyawan'])) {
   header("Location: ../pages/admin/_table-admin.php");
   exit;
 }
-?>

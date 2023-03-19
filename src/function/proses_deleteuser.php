@@ -22,4 +22,3 @@ if (mysqli_query($koneksi, $sql)) {
 
 // Menutup koneksi ke database
 mysqli_close($koneksi);
-?>

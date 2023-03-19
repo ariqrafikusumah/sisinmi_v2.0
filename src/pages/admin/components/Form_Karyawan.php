@@ -18,7 +18,7 @@
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input id="password" name="password" type="password" class="form-control" placeholder="Enter Password">
+            <input id="password" name="password" type="text" class="form-control" placeholder="Enter Password" value="ulbi123">
         </div>
         <div class="mb-3">
             <label for="role" class="form-label">role</label>
