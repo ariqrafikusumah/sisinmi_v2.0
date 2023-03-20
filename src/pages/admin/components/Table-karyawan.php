@@ -41,7 +41,7 @@
                 <td><?php echo $row['no_handphone']; ?></td>
                 <td><?php echo $row['alamat']; ?></td>
                 <td>
-                    <a href='' type='button' class='btn btn-primary bg-blue-500' data-bs-toggle='modal' data-bs-target='#exampleModal2<?php echo $row['id_karyawan']; ?>'><i class='fa-solid fa-pen-to-square'></i></a>
+                    <a href='Modal-edit-karyawan.php?id_karyawan=<?php echo $row['id_karyawan']; ?>' type='button' class='btn btn-primary bg-blue-500' data-bs-toggle='modal' data-bs-target='#exampleModal2'><i class='fa-solid fa-pen-to-square'></i></a>
 
                     <?php require_once("Modal-edit-karyawan.php") ?>
 
