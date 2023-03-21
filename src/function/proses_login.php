@@ -55,8 +55,8 @@ if ($cek > 0) {
 	} else {
 
 		// alihkan ke halaman login kembali
-		header("location: ../auth/_login.php?pesan=gagal");
+		header("location: ../../index.php?alert=login&pesan=Email atau password salah.");
 	}
 } else {
-	header("location: ../auth/_login.php?pesan=gagal");
+	header("location: ../../index.php?alert=login&pesan=Email atau password salah.");
 }

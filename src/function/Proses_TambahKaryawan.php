@@ -4,7 +4,7 @@
 require_once('../config/database.php');
 
 // Mengecek apakah form telah disubmit
-if (isset($_POST['nama_lengkap']) && isset($_POST['nip']) && isset($_POST['tanggal_lahir'])&& isset($_POST['email'])&& isset($_POST['password'])&& isset($_POST['role'])&& isset($_POST['no_handphone'])&& isset($_POST['alamat'])) {
+if (isset($_POST['nama_lengkap']) && isset($_POST['nip']) && isset($_POST['tanggal_lahir']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['role']) && isset($_POST['no_handphone']) && isset($_POST['alamat'])) {
     // Mengambil data dari form
     $nama_lengkap = $_POST['nama_lengkap'];
     $nip = $_POST['nip'];

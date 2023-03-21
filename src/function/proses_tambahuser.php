@@ -31,4 +31,3 @@ if ($hasil_query) {
 }
 // tutup koneksi database
 mysqli_close($koneksi);
-?>

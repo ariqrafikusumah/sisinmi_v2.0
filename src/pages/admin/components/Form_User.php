@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('function/Get_karyawan.php')
 ?>
 <form action="../../function/proses_tambahuser.php" method="post">
@@ -27,4 +27,3 @@ require_once('function/Get_karyawan.php')
         </div>
     </div>
 </form>
-

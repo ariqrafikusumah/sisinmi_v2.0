@@ -26,6 +26,14 @@
 </head>
 
 <body>
+    <?php
+    session_start();
+
+    // cek apakah yang mengakses halaman ini sudah login
+    if ($_SESSION['role'] == "") {
+        header("location:../../../index.php?alert=failed&pesan=Anda Harus Login.");
+    }
+    ?>
     <div class="mb-5">
         <?php require_once("components/Navbar.php")  ?>
     </div>
@@ -36,12 +44,22 @@
         <div class="border-4 border-gray-200 shadow-lg p-2 rounded-lg">
             <?php require_once("components/Table-mahasiswa.php") ?>
         </div>
+
+        <div class="font-bold text-lg mb-3 mt-5">
+            Data Matakuliah
+        </div>
+        <div class="border-4 border-gray-200 shadow-lg p-2 rounded-lg">
+            <?php require_once("components/Table-matakuliah.php") ?>
+        </div>
+
+        <div class="font-bold text-lg mb-3 mt-5">
+            Data Absensi
+        </div>
+        <div class="border-4 border-gray-200 shadow-lg p-2 rounded-lg">
+            <?php require_once("components/Table-absensi.php") ?>
+        </div>
     </div>
 
-    <!-- 
-        Modal User
-    -->
-    <?php require_once("components/Modal-edit-mahasiswa.php") ?>
     <!-- 
         DataTables CDN Script
     -->
@@ -50,6 +68,12 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
+        });
+        $(document).ready(function() {
+            $('#example2').DataTable();
+        });
+        $(document).ready(function() {
+            $('#example3').DataTable();
         });
     </script>
     <!-- 
