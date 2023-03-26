@@ -19,6 +19,23 @@
         Bootsrap CDN link    
     -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Set the background color to semi-transparent black */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Center the spinner vertically and horizontally */
+            z-index: 9999;
+            /* Set a high z-index to make sure the loading overlay is on top of everything */
+        }
+    </style>
 </head>
 
 <body>
@@ -26,12 +43,23 @@
     session_start();
 
     // cek apakah yang mengakses halaman ini sudah login
-    if ($_SESSION['role'] == "") {
+    if ($_SESSION['role'] != "dosen") {
         header("location:../../../index.php?alert=failed&pesan=Anda Harus Login.");
     }
     ?>
     <div class="mb-5">
         <?php require_once("components/Navbar.php") ?>
+    </div>
+
+    <div id="loading-overlay">
+        <div class="grid grid-rows-1 gap-2">
+            <div>
+                <img class="animate-bounce" src="https://blogger.googleusercontent.com/img/a/AVvXsEh6RdTrvRK4cMK-CDcOmQwijvo5hXf_F0JckS-zC-dE1fxhBzUCHx0jwlixxOLo5K1TMRcYLSd9-JstM2KxiYOJww-sOy9s_VWCCqwAq_9DdzVFs4iBgBlW_lwMr3VZUXmJmmgHEgQCrKHxjsT1RTmFL48xetOc_lIpEFLBIaRhbXVYS8GK4Nl0CFgBqw=w180" alt="">
+            </div>
+            <div class="text-white text-xl animate-pulse">
+                Loading page ...
+            </div>
+        </div>
     </div>
 
     <div class=" container mt-5 p-5 mb-5">
@@ -40,6 +68,23 @@
         </div>
         <?php require_once("components/Form_BAP.php") ?>
     </div>
+
+    <div>
+        <?php require_once('components/Footer.php') ?>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Hide the loading overlay
+            document.getElementById("loading-overlay").style.display = "none";
+        };
+
+        function showLoading() {
+            // Show the loading overlay
+            document.getElementById("loading-overlay").style.display = "block";
+        }
+    </script>
+
     <!-- 
         JS Bootstrap CDN
     -->

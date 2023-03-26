@@ -30,9 +30,9 @@ $query = "UPDATE berita_acara SET
 
 if (mysqli_query($koneksi, $query)) {
     // jika berhasil, kembalikan ke halaman sebelumnya
-    echo "<script>alert('Data absensi berhasil diupdate.');window.location='../pages/dosen/_table-dosen.php';</script>";
+    echo "<script>alert('Data absensi berhasil diupdate.');window.location='../pages/kaprodi/_table-kaprodi.php';</script>";
 } else {
     // jika gagal, tampilkan pesan error
-    echo "<script>alert('Terjadi kesalahan saat mengupdate data absensi: " . mysqli_error($koneksi) . "');window.location='../pages/dosen/_table-dosen.php';</script>";
+    echo "<script>alert('Terjadi kesalahan saat mengupdate data absensi: " . mysqli_error($koneksi) . "');window.location='../pages/kaprodi/_table-kaprodi.php';</script>";
 }
 mysqli_close($koneksi);

@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $jam_selesai = isset($_POST['jam_selesai']) ? $_POST['jam_selesai'] : "";
     $topik = $_POST['topik'];
     $hasil_pembelajran = isset($_POST['hasil_pembelajran']) ? $_POST['hasil_pembelajran'] : "";
+    $status = $_POST['status'];
 
     // validasi input jam mulai dan jam selesai
     if (empty($jam_mulai) || empty($jam_selesai)) {
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama_matakuliah = $data_nama_matakuliah['nama_matakuliah'];
 
     // query untuk save berita acara
-    $query4 = "INSERT INTO berita_acara (jumlah_hadir, id_karyawan, nama_matakuliah, tanggal, jam_mulai, jam_selesai, topik, hasil_pembelajran) VALUES ('$jumlah_hadir', '$id_karyawan', '$nama_matakuliah', '$tanggal', '$jam_mulai', '$jam_selesai', '$topik', '$hasil_pembelajran')";
+    $query4 = "INSERT INTO berita_acara (jumlah_hadir, id_karyawan, nama_matakuliah, tanggal, jam_mulai, jam_selesai, topik, hasil_pembelajran, status) VALUES ('$jumlah_hadir', '$id_karyawan', '$nama_matakuliah', '$tanggal', '$jam_mulai', '$jam_selesai', '$topik', '$hasil_pembelajran', '$status')";
     $hasil_query = mysqli_query($koneksi, $query4);
 
     // cek apakah query berhasil dijalankan

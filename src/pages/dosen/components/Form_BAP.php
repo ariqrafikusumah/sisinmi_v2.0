@@ -10,7 +10,7 @@ require_once('function/GetAbsensi.php');
         </div>
         <div class="mb-3">
             <label for="jumlah_hadir">Jumlah Hadir Mahasiswa</label>
-            <input class="form-control" type="text" id="jumlah_hadir" name="jumlah_hadir">
+            <input class="form-control" type="number" id="jumlah_hadir" name="jumlah_hadir">
         </div>
         <?php
 
@@ -54,6 +54,9 @@ require_once('function/GetAbsensi.php');
         <div class="mb-3">
             <label for="hasil_pembelajran">Hasil Pembelajaran</label>
             <textarea class="form-control" name="hasil_pembelajran" id="hasil_pembelajran" cols="30" rows="5" placeholder="Enter Your Hasil"></textarea>
+        </div>
+        <div class="mb-3">
+            <input class="form-control" type="text" id="status" name="status" value="Pending" hidden>
         </div>
         <div>
             <button type="reset" class="btn btn-danger bg-red-500">Reset</button>

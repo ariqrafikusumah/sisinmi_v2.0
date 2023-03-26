@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19 Mar 2023 pada 06.23
--- Versi Server: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Waktu pembuatan: 26 Mar 2023 pada 15.27
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -33,7 +34,7 @@ CREATE TABLE `absensi` (
   `tanggal` date NOT NULL,
   `jumlah_hadir` varchar(255) NOT NULL,
   `nilai` varchar(3) NOT NULL,
-  `nilai_bobot` decimal(10,0) NOT NULL
+  `nilai_bobot` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -41,7 +42,8 @@ CREATE TABLE `absensi` (
 --
 
 INSERT INTO `absensi` (`absensi_id`, `npm`, `kode_matakuliah`, `tanggal`, `jumlah_hadir`, `nilai`, `nilai_bobot`) VALUES
-(1, 1184000, 1, '2023-03-15', 'Hadir\r\n', '', '0');
+(8, 1184077, 123566, '2023-03-21', '14', 'B', '3'),
+(9, 1184057, 1158428, '2023-03-21', '13', 'A', '4');
 
 -- --------------------------------------------------------
 
@@ -51,15 +53,25 @@ INSERT INTO `absensi` (`absensi_id`, `npm`, `kode_matakuliah`, `tanggal`, `jumla
 
 CREATE TABLE `berita_acara` (
   `bap_id` int(11) NOT NULL,
-  `absensi_id` int(11) NOT NULL,
+  `jumlah_hadir` int(11) NOT NULL,
   `id_karyawan` int(11) NOT NULL,
-  `kode_matakuliah` int(11) NOT NULL,
+  `nama_matakuliah` varchar(255) NOT NULL,
   `tanggal` date NOT NULL,
-  `jam_mulai` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `jam_selesai` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `jam_mulai` time NOT NULL,
+  `jam_selesai` time NOT NULL,
   `topik` text NOT NULL,
-  `hasil_pembelajran` text NOT NULL
+  `hasil_pembelajran` text NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `berita_acara`
+--
+
+INSERT INTO `berita_acara` (`bap_id`, `jumlah_hadir`, `id_karyawan`, `nama_matakuliah`, `tanggal`, `jam_mulai`, `jam_selesai`, `topik`, `hasil_pembelajran`, `status`) VALUES
+(9, 45, 201565, 'GIS', '2023-03-26', '16:16:00', '17:16:00', 'GIS', 'PENGENALAN GIS', 'Cancel'),
+(10, 45, 201562, 'Algoritma 1', '2023-03-26', '15:18:00', '17:18:00', 'Flowmap', 'Flowchart', 'Pending'),
+(11, 35, 201564, 'Algoritma 1', '2023-03-26', '15:20:00', '15:20:00', 'Flowmap', 'Algoritman Flowchart', 'Approved');
 
 -- --------------------------------------------------------
 
@@ -84,8 +96,7 @@ CREATE TABLE `karyawan` (
 --
 
 INSERT INTO `karyawan` (`id_karyawan`, `nama_lengkap`, `nip`, `tanggal_lahir`, `email`, `password`, `role`, `no_handphone`, `alamat`) VALUES
-(201561, 'Ilham Nugroho', '852041852', '2000-12-09', 'nugroho@gmail.com', 'ulbi123', 'dosen', '087812768954', 'Cirebon\r\n'),
-(201562, 'Ucok Prasetya', '17216313613', '2023-03-16', 'ucok@gmail.com', 'ulbi123', 'admin', '0123131313', 'Cimahi\r\n'),
+(201562, 'Ucok Prasetyi', '17216313613', '2023-03-16', 'ucok@gmail.com', 'ulbi123', 'admin', '0123131313', 'Cimahi\r\n'),
 (201564, 'Agus Comel', '189441165198198', '2023-03-01', 'comel@gmail.com', '', 'kaprodi', '025887898587', 'Cibiru'),
 (201565, 'Ariq Rafi', '8228855', '2023-02-13', 'ariq@gmail.com', 'ulbi123', 'admin', '02121215454', 'Cilandak');
 
@@ -109,9 +120,8 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`npm`, `nama_lengkap`, `program_studi`, `email`, `no_handphone`, `alamat`) VALUES
-(1184000, 'Ariq Rai Kusumah', 'TI', 'ariq@gmail.com', '5813218120', 'Bandung'),
-(1184001, 'Ilham Dwi', 'Ti', 'ilha@gmial.com', '.0649856123', 'Bali'),
-(1184057, 'Nugroho', 'Manajemen Informatik', 'nugnug@gmail.com', '0998888222', 'Cikujang');
+(1184057, 'Ariq Rai', 'D3 Manajemen Informatika', 'rai@gmail.com', '852853460', 'Cirebon'),
+(1184077, 'Arkafa', 'D3 Manajemen Informatika', 'arkaf@gmail.com', '815205845515', 'Jekardah');
 
 -- --------------------------------------------------------
 
@@ -131,7 +141,8 @@ CREATE TABLE `matakuliah` (
 --
 
 INSERT INTO `matakuliah` (`kode_matakuliah`, `nama_matakuliah`, `sks`, `program_studi`) VALUES
-(1, 'GIS', 4, 'Manajemen Informatika');
+(123566, 'Algoritma 1', 4, 'D3 Manajemen Informatika'),
+(1158428, 'GIS', 3, 'D3 Manajemen Informatika');
 
 -- --------------------------------------------------------
 
@@ -154,106 +165,91 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `id_karyawan`, `email`, `password`, `role`) VALUES
 (30, 201250, 'militer@gmail.com', 'ulbi123', 'dosen'),
 (33, 201562, 'ucok@gmail.com', 'ulbi123', 'admin'),
-(34, 201561, 'nugroho@gmail.com', 'ulbi123', 'dosen');
+(36, 201561, 'nugroho@gmail.com', 'ulbi123', 'baak'),
+(37, 201565, 'ariq@gmail.com', 'ulbi123', 'baak'),
+(38, 20213, 'kaprodi@gmail.com', 'ulbi123', 'kaprodi');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `absensi`
+-- Indeks untuk tabel `absensi`
 --
 ALTER TABLE `absensi`
-  ADD PRIMARY KEY (`absensi_id`),
-  ADD UNIQUE KEY `npm` (`npm`),
-  ADD UNIQUE KEY `kode_matakuliah` (`kode_matakuliah`);
+  ADD PRIMARY KEY (`absensi_id`);
 
 --
--- Indexes for table `berita_acara`
+-- Indeks untuk tabel `berita_acara`
 --
 ALTER TABLE `berita_acara`
-  ADD PRIMARY KEY (`bap_id`),
-  ADD UNIQUE KEY `absensi_id` (`absensi_id`),
-  ADD UNIQUE KEY `id_karyawan` (`id_karyawan`),
-  ADD UNIQUE KEY `kode_matakuliah` (`kode_matakuliah`);
+  ADD PRIMARY KEY (`bap_id`);
 
 --
--- Indexes for table `karyawan`
+-- Indeks untuk tabel `karyawan`
 --
 ALTER TABLE `karyawan`
   ADD PRIMARY KEY (`id_karyawan`);
 
 --
--- Indexes for table `mahasiswa`
+-- Indeks untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`npm`);
 
 --
--- Indexes for table `matakuliah`
+-- Indeks untuk tabel `matakuliah`
 --
 ALTER TABLE `matakuliah`
   ADD PRIMARY KEY (`kode_matakuliah`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `id_karyawan` (`id_karyawan`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `absensi`
+-- AUTO_INCREMENT untuk tabel `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `absensi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `absensi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
--- AUTO_INCREMENT for table `berita_acara`
+-- AUTO_INCREMENT untuk tabel `berita_acara`
 --
 ALTER TABLE `berita_acara`
-  MODIFY `bap_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bap_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
--- AUTO_INCREMENT for table `karyawan`
+-- AUTO_INCREMENT untuk tabel `karyawan`
 --
 ALTER TABLE `karyawan`
   MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201566;
+
 --
--- AUTO_INCREMENT for table `mahasiswa`
+-- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `npm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1184058;
+  MODIFY `npm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1184078;
+
 --
--- AUTO_INCREMENT for table `matakuliah`
+-- AUTO_INCREMENT untuk tabel `matakuliah`
 --
 ALTER TABLE `matakuliah`
-  MODIFY `kode_matakuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `kode_matakuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1158429;
+
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `absensi`
---
-ALTER TABLE `absensi`
-  ADD CONSTRAINT `absensi_ibfk_1` FOREIGN KEY (`npm`) REFERENCES `mahasiswa` (`npm`),
-  ADD CONSTRAINT `absensi_ibfk_2` FOREIGN KEY (`kode_matakuliah`) REFERENCES `matakuliah` (`kode_matakuliah`);
-
---
--- Ketidakleluasaan untuk tabel `berita_acara`
---
-ALTER TABLE `berita_acara`
-  ADD CONSTRAINT `berita_acara_ibfk_1` FOREIGN KEY (`absensi_id`) REFERENCES `absensi` (`absensi_id`),
-  ADD CONSTRAINT `berita_acara_ibfk_2` FOREIGN KEY (`id_karyawan`) REFERENCES `karyawan` (`id_karyawan`),
-  ADD CONSTRAINT `berita_acara_ibfk_3` FOREIGN KEY (`kode_matakuliah`) REFERENCES `matakuliah` (`kode_matakuliah`);
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -27,7 +27,7 @@ if ($cek > 0) {
 		$_SESSION['email'] = $email;
 		$_SESSION['role'] = "admin";
 		// alihkan ke halaman dashboard admin
-		header("location: ../pages/admin/_dashboard-admin.php");
+		header("location: ../pages/admin/_dashboard-admin.php?alert=login&pesan=Anda Berhasil Login.");
 
 		// cek jika user login sebagai pegawai
 	} else if ($data['role'] == "dosen") {
@@ -35,7 +35,7 @@ if ($cek > 0) {
 		$_SESSION['email'] = $email;
 		$_SESSION['role'] = "dosen";
 		// alihkan ke halaman dashboard pegawai
-		header("location: ../pages/dosen/_dashboard-dosen.php");
+		header("location: ../pages/dosen/_dashboard-dosen.php?alert=login&pesan=Anda Berhasil Login.");
 
 		// cek jika user login sebagai pengurus
 	} else if ($data['role'] == "baak") {
@@ -43,13 +43,13 @@ if ($cek > 0) {
 		$_SESSION['email'] = $email;
 		$_SESSION['role'] = "baak";
 		// alihkan ke halaman dashboard pengurus
-		header("location:../pages/baak/_dashboard-baak.php");
+		header("location:../pages/baak/_dashboard-baak.php?alert=login&pesan=Anda Berhasil Login.");
 	} else if ($data['role'] == "kaprodi") {
 		// buat session login dan email
 		$_SESSION['email'] = $email;
 		$_SESSION['role'] = "kaprodi";
 		// alihkan ke halaman dashboard pegawai
-		header("location:../pages/kaprodi/_dashboard-kaprodi.php");
+		header("location:../pages/kaprodi/_dashboard-kaprodi.php?alert=login&pesan=Anda Berhasil Login.");
 
 		// cek jika user login sebagai pengurus
 	} else {

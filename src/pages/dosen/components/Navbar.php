@@ -26,7 +26,7 @@
                         <a class="nav-link" href="_form-input-BAP.php"><i class="fa-solid fa-pen-to-square"></i> Input BAP</a>
                     </li>
                     <li class="nav-item hover:bg-gray-200 p-2">
-                        <a class="nav-link text-red-500" href="../../../index.php"><i class="fa-solid fa-power-off"></i> Log-out</a>
+                        <a class="nav-link text-red-500" href="../../auth/_logout.php"><i class="fa-solid fa-power-off"></i> Log-out</a>
                     </li>
                 </ul>
             </div>

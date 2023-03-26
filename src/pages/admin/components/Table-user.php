@@ -1,8 +1,7 @@
-<table id="example" class="display" style="width:100%">
+<table id="example" class="display nowrap" style="width:100%">
     <thead>
         <tr>
             <th>No</th>
-            <th>ID User</th>
             <th>Email</th>
             <th>Role</th>
             <th>Edit</th>
@@ -26,7 +25,6 @@
             <tr>
                 <!-- menampilkan data dengan menggunakan array  -->
                 <td><?php echo $no++; ?></td>
-                <td><?php echo $row['id_user']; ?></td>
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['role']; ?></td>
                 <td>

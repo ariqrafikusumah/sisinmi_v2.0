@@ -20,7 +20,7 @@
         //membuat variabel angka
         $no = 1;
 
-        //mengambil data dari tabel barang
+        //mengambil data dari tabel baak
         $select = mysqli_query($koneksi, "SELECT * FROM absensi");
 
         //melooping(perulangan) dengan menggunakan while

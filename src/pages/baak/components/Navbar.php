@@ -17,7 +17,7 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item hover:bg-gray-200 p-2">
-                        <a class="nav-link active" aria-current="page" href="_dashboard-admin.php"><i class="fa-solid fa-house-chimney"></i> Home</a>
+                        <a class="nav-link active" aria-current="page" href="_dashboard-baak.php"><i class="fa-solid fa-house-chimney"></i> Home</a>
                     </li>
                     <li class="nav-item hover:bg-gray-200 p-2">
                         <a class="nav-link" href="_table-baak.php"><i class="fa-solid fa-table"></i> Table</a>
@@ -32,7 +32,7 @@
                         <a class="nav-link" href="_form-input-absensi.php"><i class="fa-solid fa-pen-to-square"></i> Input Absensi</a>
                     </li>
                     <li class="nav-item hover:bg-gray-200 p-2">
-                        <a class="nav-link text-red-500" href="../../../index.php"><i class="fa-solid fa-power-off"></i> Log-out</a>
+                        <a class="nav-link text-red-500" href="../../auth/_logout.php"><i class="fa-solid fa-power-off"></i> Log-out</a>
                     </li>
                 </ul>
             </div>

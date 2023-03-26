@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dasboard | Kaprodi</title>
+    <title>Dasboard | Table - Kaprodi</title>
     <!-- 
-        Sweatalert 2
+        DataTables
     -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <!-- 
         Fontawesome
     -->
@@ -51,25 +51,8 @@
         header("location:../../../index.php?alert=failed&pesan=Anda Harus Login.");
     }
     ?>
-    <?php
-    if (isset($_GET['alert']) && isset($_GET['pesan'])) {
-        $alert = $_GET['alert'];
-        $pesan = $_GET['pesan'];
-        if ($alert == "login") {
-    ?>
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    title: '<img class="mx-auto w-32" src="https://media.tenor.com/PqWloRzw0R0AAAAj/facebook-emoji.gif" alt="">',
-                    text: '<?= $pesan ?>',
-                })
-            </script>
-    <?php
-        }
-    }
-    ?>
     <div class="mb-5">
-        <?php require_once("components/Navbar.php") ?>
+        <?php require_once("components/Navbar.php")  ?>
     </div>
 
     <div id="loading-overlay">
@@ -83,15 +66,12 @@
         </div>
     </div>
 
-    <div class="p-2">
-        <div class="p-2.5 mt-5">
-            <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2">
-                <a href="_table-kaprodi.php">
-                    <div class="rounded-lg bg-orange-200 hover:bg-orange-500 p-4 text-lg font-bold">
-                        <i class="fa-solid fa-database"></i> Table Kaprodi
-                    </div>
-                </a>
-            </div>
+    <div class="container mt-5 pt-5 mb-5">
+        <div class="font-bold text-lg mb-3 mt-5">
+            Data Berita Acara
+        </div>
+        <div class="border-4 border-gray-200 shadow-lg p-2 rounded-lg">
+            <?php require_once("components/Table-kaprodi.php") ?>
         </div>
     </div>
 
@@ -113,9 +93,30 @@
 
 
     <!-- 
+        DataTables CDN Script
+    -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                scrollX: true,
+            });
+        });
+        $(document).ready(function() {
+            $('#example2').DataTable({
+                scrollX: true,
+            });
+        });
+        $(document).ready(function() {
+            $('#example3').DataTable({
+                scrollX: true,
+            });
+        });
+    </script>
+    <!-- 
         JS Bootstrap CDN
     -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>

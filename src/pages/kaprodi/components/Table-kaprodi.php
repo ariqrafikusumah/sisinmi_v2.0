@@ -59,44 +59,43 @@
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Edit BAP - <?php echo $row['bap_id']; ?></h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <form method="POST" action="../../function/Proses_.php?bap_id=<?php echo $row['bap_id']; ?>">
+                                <form method="POST" action="../../function/Proses_UpdateKaprodi.php?bap_id=<?php echo $row['bap_id']; ?>">
                                     <div class="modal-body">
                                         <div class="mb-3">
                                             <input id="bap_id" name="bap_id" class="form-control" type="text" placeholder="Enter BAP ID" value="<?php echo $row['bap_id']; ?>" hidden>
                                             <div class="mb-3">
-                                                <label for="id_karyawan" class="form-label">Dosen</label>
-                                                <input id="id_karyawan" name="id_karyawan" class="form-control" type="text" placeholder="Enter your BAP" value="<?php echo $row['id_karyawan']; ?>">
+                                                <input id="id_karyawan" name="id_karyawan" class="form-control" type="text" placeholder="Enter your BAP" value="<?php echo $row['id_karyawan']; ?>" hidden>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="nama_matakuliah" class="form-label">Nama Matakuliah</label>
-                                                <input id="nama_matakuliah" name="nama_matakuliah" class="form-control" type="text" placeholder="Enter your BAP" value="<?php echo $row['nama_matakuliah']; ?>">
+                                                <input id="nama_matakuliah" name="nama_matakuliah" class="form-control" type="text" placeholder="Enter your BAP" value="<?php echo $row['nama_matakuliah']; ?>" hidden>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="" class="form-label">Jumlah Hadir Mahasiswa</label>
-                                                <input type="number" class="form-control" id="jumlah_hadir" name="jumlah_hadir" value="<?php echo $row['jumlah_hadir'] ?>" placeholder="Enter Jumlah Hadir">
+                                                <input type="number" class="form-control" id="jumlah_hadir" name="jumlah_hadir" value="<?php echo $row['jumlah_hadir'] ?>" placeholder="Enter Jumlah Hadir" hidden>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="tanggal">Tanggal</label>
-                                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?php echo $row['tanggal'] ?>">
+                                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?php echo $row['tanggal'] ?>" hidden>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="jam_mulai">Jam Mulai</label>
-                                                <input type="time" class="form-control" id="jam_mulai" name="jam_selesai" value="<?php echo $row['jam_mulai'] ?>">
+                                                <input type="time" class="form-control" id="jam_mulai" name="jam_mulai" value="<?php echo $row['jam_mulai'] ?>" hidden>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="jam_selesai">Jam Selesai</label>
-                                                <input type="time" class="form-control" id="jam_selesai" name="jam_selesai" value="<?php echo $row['jam_selesai'] ?>">
+                                                <input type="time" class="form-control" id="jam_selesai" name="jam_selesai" value="<?php echo $row['jam_selesai'] ?>" hidden>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="topik">Topik</label>
-                                                <textarea name="topik" id="topik" class="form-control" cols="30" rows="5"><?php echo $row['topik'] ?></textarea>
+                                                <textarea name="topik" id="topik" class="form-control" cols="30" rows="5" hidden><?php echo $row['topik'] ?></textarea>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="hasil_pembelajran">Hasil Pembelajaran</label>
-                                                <textarea name="hasil_pembelajran" id="hasil_pembelajran" class="form-control" cols="30" rows="5"><?php echo $row['hasil_pembelajran'] ?></textarea>
+                                                <textarea name="hasil_pembelajran" id="hasil_pembelajran" class="form-control" cols="30" rows="5" hidden><?php echo $row['hasil_pembelajran'] ?></textarea>
                                             </div>
                                             <div class="mb-3">
-                                                <input id="status" name="status" class="form-control" type="text" placeholder="Enter your Status" value="<?php echo $row['status'] ?>" hidden>
+                                                <label for="status" class="form-label">Status</label>
+                                                <select name="status" id="status" class="form-select">
+                                                    <option value="<?php echo $row['status'] ?>"><?php echo $row['status'] ?></option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Cancel">Cancel</option>
+                                                    <option value="Approved">Approved</option>
+                                                </select>
+                                                <!-- <input id="status" name="status" class="form-control" type="text" placeholder="Enter your BAP" value="<?php echo $row['status'] ?>"> -->
                                             </div>
                                         </div>
                                         <div class="modal-footer">
